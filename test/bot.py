@@ -7,12 +7,22 @@ from dotenv import load_dotenv
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.common.by import By
+from selenium.webdriver.support import expected_conditions as EC
+from selenium.webdriver.support.ui import WebDriverWait
+
+#-------         Functions         -------
+def scraping(link, message, game, price, name):
+    driver.get(f'{link}{message.content}')
+    WebDriverWait(driver, 20).until(EC.element_to_be_clickable((By.XPATH, game))).click()
+    WebDriverWait(driver, 20).until(EC.element_to_be_clickable((By.XPATH, price)))
+    services.update({name : [f"[{name}]({driver.current_url})", driver.find_element(By.XPATH, price).text.replace('\n', ' ')] })
+
 
 #-------         Variables         -------
 services={
-    "ig" : [None, None],
-    "eneba" : ["hihiha", "yoyo"],
-    "kinguin" : ["hihiho", "yoyoya"]
+    "Instant-Gaming" : [None, None],
+    "K4G" : [None, None],
+    "Kinguin" : [None, None]
 }
 
 #-------         Discord Intents         -------
@@ -28,7 +38,7 @@ TOKEN = os.getenv('DISCORD_TOKEN')
 #-------         Selenium Stuff         -------
 DRIVER_PATH='chromedriver.exe'
 options = Options()
-options.headless = True
+options.headless = False
 options.add_argument("--window-size=1920,1200")
 driver = webdriver.Chrome(options=options, executable_path=DRIVER_PATH)
 
@@ -44,16 +54,13 @@ async def on_message(message):
         return
     
     #-------         Instant Gaming         -------
-    driver.get(f'https://www.instant-gaming.com/en/search/?query={message.content}')
-    element=driver.find_element(By.XPATH, '/html/body/div[5]/div/div/div[1]')
-    element.click()
-    services.update({'ig' : [f"[Instant-Gaming]({driver.current_url})", driver.find_element(By.CLASS_NAME, 'total').text.replace('\n', ' ')] })
+    scraping('https://www.instant-gaming.com/en/search/?query=', message, '/html/body/div[5]/div/div/div[1]/a', '/html/body/div[4]/div/div[3]/div[2]/div[2]/div[4]/div[3]', 'Instant-Gaming')
     
-    #-------         Eneba         -------
-    driver.get(f'https://www.eneba.com/store?page=1&platforms[]=STEAM&text={message.content}')
-    element=driver.find_element(By.XPATH, '/html/body/div[1]/main/div/div/section/div[2]/div[2]/div[1]/div/div[3]/a')
-    element.click()
-    services.update({'eneba' : [f"[Eneba]({driver.current_url})", driver.find_element(By.XPATH, '/html/body/div[1]/main/div/div/section/div[2]/div[2]/div[1]/div/div[3]/a/div/span[2]/span').text.replace('\n', ' ')] })
+    #-------         K4G         -------
+    scraping('https://k4g.com/store?q=', message, '/html/body/div[1]/div/div/div[3]/div/div[3]/div[2]/div[1]/div[2]/div[1]/a', '/html/body/div[1]/div/div/div[3]/div[1]/div[5]/div/div[2]/div/div[1]/span[3]', 'K4G')
+    
+    #-------         Kinguin         -------
+    scraping('https://www.kinguin.net/listing?phrase=', message, '//*[@id="c-page__content"]/div/div/div/div/div[2]/div/div[2]/div[2]/div/a[1]', '//*[@id="offers-list-container"]/div/div[1]/div[1]/div/div[2]/div[2]/span[2]', 'Kinguin')
     
     #-------         Final Embed         -------
     nigger=discord.Embed(title="Key Finder", description="Here is a list of keys sorted by price.", color=0x5D3FD3)
@@ -63,5 +70,6 @@ async def on_message(message):
     await message.channel.send(embed=nigger)
 
 client.run(TOKEN)
+
 
 #quando il prezzo viene scritto la valuta viene scritta a capo, bisogna fare in modo che i siti vengano ordinati in ordine di prezzo.
