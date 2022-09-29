@@ -39,7 +39,7 @@ TOKEN = os.getenv('DISCORD_TOKEN')
 DRIVER_PATH='chromedriver.exe'
 options = Options()
 options.headless = False
-options.add_argument("--window-size=1920,1200")
+options.add_argument("--window-size=1280,720")
 driver = webdriver.Chrome(options=options, executable_path=DRIVER_PATH)
 
 #-------         Events         -------
