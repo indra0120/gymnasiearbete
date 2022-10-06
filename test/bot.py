@@ -12,17 +12,28 @@ from selenium.webdriver.support.ui import WebDriverWait
 
 #-------         Functions         -------
 def scraping(link, message, game, price, name):
-    driver.get(f'{link}{message.content}')
-    WebDriverWait(driver, 20).until(EC.element_to_be_clickable((By.XPATH, game))).click()
-    WebDriverWait(driver, 20).until(EC.element_to_be_clickable((By.XPATH, price)))
-    services.update({name : [f"[{name}]({driver.current_url})", driver.find_element(By.XPATH, price).text.replace('\n', ' ')] })
+    try:
+        driver.get(f'{link}{message.content}')
+        #FIX THE PRICE ITS NOT SETTTT!!!!!
+        WebDriverWait(driver, 10).until(EC.element_to_be_clickable((By.XPATH, price)))
+        WebDriverWait(driver, 10).until(EC.element_to_be_clickable((By.XPATH, game))).click()
+        p=int(''.join(filter(str.isdigit, driver.find_element(By.XPATH, price).text.replace('\n', ' ') )))
+        currencies=['€', 'EUR']
+        if currencies in p:
+            p.replace(currencies, '')
+            p=f"{int(p)*10.85}"
+            p+=" kr"
+        services.update({name : [f"[{name}]({driver.current_url})", p] })
+    except:
+        services.update({name : [f"{name}", "Unavaiable"] })
 
 
 #-------         Variables         -------
 services={
     "Instant-Gaming" : [None, None],
     "K4G" : [None, None],
-    "Kinguin" : [None, None]
+    "Kinguin" : [None, None],
+    "Eneba" : [None, None]
 }
 
 #-------         Discord Intents         -------
@@ -61,6 +72,9 @@ async def on_message(message):
     
     #-------         Kinguin         -------
     scraping('https://www.kinguin.net/listing?phrase=', message, '//*[@id="c-page__content"]/div/div/div/div/div[2]/div/div[2]/div[2]/div/a[1]', '//*[@id="offers-list-container"]/div/div[1]/div[1]/div/div[2]/div[2]/span[2]', 'Kinguin')
+       
+    #-------         Eneba         -------
+    scraping('https://www.eneba.com/store?text=', message, '//*[@id="app"]/main/div/div/section/div[2]/div[2]/div[1]/div/div[3]/a', '//*[@id="app"]/main/div/div/div/div/div[4]/div/div/div/div/span[2]/div/span/span', 'Eneba')
     
     #-------         Final Embed         -------
     nigger=discord.Embed(title="Key Finder", description="Here is a list of keys sorted by price.", color=0x5D3FD3)
