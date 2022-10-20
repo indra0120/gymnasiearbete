@@ -11,29 +11,41 @@ from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.ui import WebDriverWait
 
 #-------         Functions         -------
+def valuta(p):
+    if 'EUR' in p:
+        p.replace('EUR', '')
+        p=f"{float(''.join(filter(str.isdigit, p)))*10.85}"
+        p+=" kr"
+    if '€' in p:
+        p.replace('€', '')
+        p=f"{float(''.join(filter(str.isdigit, p)))*10.85}"
+        p+=" kr"      
+    if 'sek' in p.lower():
+        p.replace('sek', '')
+        p+=' kr'
+    return p
+
 def scraping(link, message, game, price, name):
     try:
         driver.get(f'{link}{message.content}')
         #FIX THE PRICE ITS NOT SETTTT!!!!!
-        WebDriverWait(driver, 10).until(EC.element_to_be_clickable((By.XPATH, price)))
-        WebDriverWait(driver, 10).until(EC.element_to_be_clickable((By.XPATH, game))).click()
-        p=int(''.join(filter(str.isdigit, driver.find_element(By.XPATH, price).text.replace('\n', ' ') )))
-        currencies=['€', 'EUR']
-        if currencies in p:
-            p.replace(currencies, '')
-            p=f"{int(p)*10.85}"
-            p+=" kr"
-        services.update({name : [f"[{name}]({driver.current_url})", p] })
+        WebDriverWait(driver, 10).until(EC.element_to_be_clickable((By.XPATH, game)))
+        #p=int(''.join(filter(str.isdigit, driver.find_element(By.XPATH, price).text.replace('\n', ' ') )))
+        #p=driver.find_element(By.XPATH, price).text.replace('\n', ' ')
     except:
         services.update({name : [f"{name}", "Unavaiable"] })
+        return
+    #p=valuta(p)
+    
+    services.update({name : [f"[{name}]({driver.find_element(By.XPATH, game).get_attribute('href')})", driver.find_element(By.XPATH, price).text.replace('\n', ' ')] })
 
 
 #-------         Variables         -------
 services={
-    "Instant-Gaming" : [None, None],
-    "K4G" : [None, None],
-    "Kinguin" : [None, None],
-    "Eneba" : [None, None]
+    "Instant-Gaming" : [],
+    "K4G" : [],
+    "Kinguin" : [],
+    "Eneba" : []
 }
 
 #-------         Discord Intents         -------
@@ -65,16 +77,16 @@ async def on_message(message):
         return
     
     #-------         Instant Gaming         -------
-    scraping('https://www.instant-gaming.com/en/search/?query=', message, '/html/body/div[5]/div/div/div[1]/a', '/html/body/div[4]/div/div[3]/div[2]/div[2]/div[4]/div[3]', 'Instant-Gaming')
+    scraping('https://www.instant-gaming.com/en/search/?query=', message, '/html/body/div[5]/div/div/div[1]/a', '/html/body/div[5]/div/div/div[1]/div/div[2]', 'Instant-Gaming')
     
     #-------         K4G         -------
-    scraping('https://k4g.com/store?q=', message, '/html/body/div[1]/div/div/div[3]/div/div[3]/div[2]/div[1]/div[2]/div[1]/a', '/html/body/div[1]/div/div/div[3]/div[1]/div[5]/div/div[2]/div/div[1]/span[3]', 'K4G')
+    scraping('https://k4g.com/store?q=', message, '//*[@id="k4g-root"]/div/div[3]/div/div[3]/div[2]/div[1]/div[2]/div[1]/a', '//*[@id="k4g-root"]/div/div[3]/div/div[3]/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[2]', 'K4G')
     
     #-------         Kinguin         -------
-    scraping('https://www.kinguin.net/listing?phrase=', message, '//*[@id="c-page__content"]/div/div/div/div/div[2]/div/div[2]/div[2]/div/a[1]', '//*[@id="offers-list-container"]/div/div[1]/div[1]/div/div[2]/div[2]/span[2]', 'Kinguin')
+    scraping('https://www.kinguin.net/listing?active=1&hideUnavailable=0&phrase=', message, '//*[@id="c-page__content"]/div/div/div/div[2]/div[2]/div/div[2]/div[2]/div/a[2]', '//*[@id="c-page__content"]/div/div/div/div[2]/div[2]/div/div[2]/div[2]/div/a[2]/div/button/div/span[3]', 'Kinguin')
        
     #-------         Eneba         -------
-    scraping('https://www.eneba.com/store?text=', message, '//*[@id="app"]/main/div/div/section/div[2]/div[2]/div[1]/div/div[3]/a', '//*[@id="app"]/main/div/div/div/div/div[4]/div/div/div/div/span[2]/div/span/span', 'Eneba')
+    scraping('https://www.eneba.com/store?text=', message, '//*[@id="app"]/main/div/div/section/div[2]/div[2]/div[1]/div/div[3]/a', '//*[@id="app"]/main/div/div/section/div[2]/div[2]/div[1]/div/div[3]/a/div/span[2]/span', 'Eneba')
     
     #-------         Final Embed         -------
     nigger=discord.Embed(title="Key Finder", description="Here is a list of keys sorted by price.", color=0x5D3FD3)
