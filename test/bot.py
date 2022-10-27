@@ -49,7 +49,7 @@ services={
 }
 
 #-------         Discord Intents         -------
-intents = discord.Intents.default()
+intents = discord.Intents.all()
 intents.members=True
 intents.messages=True
 client = discord.Client(intents=intents)
@@ -93,7 +93,7 @@ async def on_message(message):
     nigger.add_field(name="Service", value='\n'.join([services[key][0] for key in services]), inline=True)
     nigger.add_field(name="Price", value='\n'.join([services[key][1] for key in services]), inline=True)
     #nigger.image(url='https://s3.gaming-cdn.com/images/products/2360/616x353/escape-from-tarkov-pc-game-cover.jpg?v=1656682867', height=400, width=229)
-    await message.channel.send(embed=nigger)
+    await message.channel.send(embed=nigger, reference=message)
 
 client.run(TOKEN)
 
