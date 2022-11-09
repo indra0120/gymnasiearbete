@@ -33,11 +33,11 @@ def scraping(link, message, game, price, name):
         #p=int(''.join(filter(str.isdigit, driver.find_element(By.XPATH, price).text.replace('\n', ' ') )))
         #p=driver.find_element(By.XPATH, price).text.replace('\n', ' ')
     except:
-        services.update({name : [f"{name}", "Unavaiable"] })
+        services.update({name : [f"```css\n[{name}]\n```", "```css\n[Unvaiable]\n```"] })
         return
     #p=valuta(p)
-    
-    services.update({name : [f"[{name}]({driver.find_element(By.XPATH, game).get_attribute('href')})", driver.find_element(By.XPATH, price).text.replace('\n', ' ')] })
+    final_price=driver.find_element(By.XPATH, price).text.replace('\n', ' ')
+    services.update({name : [f"[```{name}```]({driver.find_element(By.XPATH, game).get_attribute('href')})", f"```{final_price}```"] })
 
 
 #-------         Variables         -------
