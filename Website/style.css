@@ -175,8 +175,7 @@ slide > .info {
 video{
     position: absolute;
     inset: 0;
-    height: 200px;
-    width: 350px;
+    width: 520px;
     background-color: white;
     margin-top: 150px;
     margin-left: auto;
@@ -184,5 +183,3 @@ video{
     border: solid 2px white;
     border-radius: 10px;
 }
-
-
