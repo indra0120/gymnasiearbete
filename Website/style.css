@@ -1,6 +1,5 @@
 body{
     background-color: #23272a;
-    background-image: url();
 }
 
 html{
@@ -111,7 +110,7 @@ span{
 
 }
 
-.info2{
+.info2, .info3{
     margin-top: -2%;
     font-size: 30px;
     min-height: 30vh;
@@ -177,11 +176,13 @@ video{
     position: absolute;
     inset: 0;
     height: 200px;
-    width: 400px;
+    width: 350px;
     background-color: white;
     margin-top: 150px;
     margin-left: auto;
     margin-right: auto;
+    border: solid 2px white;
+    border-radius: 10px;
 }
 
 
