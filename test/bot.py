@@ -6,6 +6,7 @@ import os, discord
 from discord import app_commands
 from discord.ext import commands
 from dotenv import load_dotenv
+from collections import OrderedDict
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.common.by import By
@@ -14,22 +15,24 @@ from selenium.webdriver.support.ui import WebDriverWait
 
 #-------         Functions         -------
 image_link=""
+
 def valuta(p):
     if 'EUR' in p:
         p=p.replace('EUR', '')
         p=p.replace(",", ".")
-        p=f"{float(p)*10.8:>3.2f}"
+        p=f"{float(p)*10.8:07.2f}"
         p+=" kr"
     if '€' in p:
         p=p.replace('€', '')
         p=p.replace(",", ".")
-        p=f"{float(p)*10.8:>3.2f}"
-        p+=" kr"      
+        p=f"{float(p)*10.8:07.2f}"
+        p+=" kr"
     if 'SEK' in p:
         p=p.replace('SEK ', '')
-        p+=' kr'
+        p=f"{float(p):07.2f} kr"
     if 'kr.' in p:
-        p=p.replace('kr.', " kr")
+        p=p.replace('kr.', "")
+        p=f"{float(p):07.2f} kr"
 
     return p
 
@@ -40,19 +43,22 @@ def scraping(link, message, game, price, name):
     except:
         services.update({name : [f"```css\n[{name}]\n```", "```css\n[Unvaiable]\n```"] })
         return
+
     final_price=driver.find_element(By.XPATH, price).text
+
     if(name=="K4G"):
         final_price=str.split(str(driver.find_element(By.XPATH, price).text), "\n")[0]
     elif(name == "Steam"):
+        global image_link
+        image_link=f"https://cdn.cloudflare.steamstatic.com/steam/apps/{driver.find_element(By.XPATH, game).get_attribute('data-ds-appid')}/header.jpg"
         if(driver.find_element(By.XPATH, price).text==""):
             final_price=driver.find_element(By.XPATH, '//*[@id="search_resultsRows"]/a[2]/div[2]/div[4]/div[2]').text.replace('\n', ' ')
             game='//*[@id="search_resultsRows"]/a[2]'
         if("\n" in final_price):
             final_price=str.split(str(driver.find_element(By.XPATH, price).text), "\n")[1]
-        global image_link
-        image_link=f"https://cdn.cloudflare.steamstatic.com/steam/apps/{driver.find_element(By.XPATH, game).get_attribute('data-ds-appid')}/header.jpg"
+            
         
-    services.update({name : [f"[```{name}```]({driver.find_element(By.XPATH, game).get_attribute('href')})", f"```{valuta(final_price)}```"] })
+    services.update({name : [f"[```{name}```]({driver.find_element(By.XPATH, game).get_attribute('href')})", valuta(final_price)] })
 
 #-------         Discord Intents         -------
 intents = discord.Intents.all()
@@ -68,11 +74,10 @@ services={
 load_dotenv()
 
 #-------         Selenium Stuff         -------
-DRIVER_PATH='chromedriver.exe'
 options = Options()
 options.headless = False
-options.add_argument("--window-size=1280,720")
-driver = webdriver.Chrome(options=options, executable_path=DRIVER_PATH)
+options.add_argument("--window-size=640,480")
+driver = webdriver.Chrome(options=options)
 
 #-------         Events         -------
 
@@ -103,8 +108,10 @@ async def key(interaction: discord.Interaction, name: str):
     
     #-------         Final Embed         -------
     FinalEmbed=discord.Embed(title="Key Finder", description="Here is a list of keys sorted by price.", color=0x5D3FD3)
+    global services
+    services=OrderedDict(sorted(services.items(), key=lambda x: x[1][1]))
     FinalEmbed.add_field(name="Service", value='\n'.join([services[key][0] for key in services]), inline=True)
-    FinalEmbed.add_field(name="Price", value='\n'.join([services[key][1] for key in services]), inline=True)
+    FinalEmbed.add_field(name="Price", value='\n'.join([f"```{services[key][1].lstrip('0')}```" for key in services]), inline=True)
     FinalEmbed.set_image(url=image_link)
     
     await interaction.edit_original_response(content=f"Hey {interaction.user.name}, these are the keys i found for `{name}`.", embed=FinalEmbed)
