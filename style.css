@@ -116,7 +116,7 @@ span{
 
 .info2, .info3{
     font-size: 30px;
-    min-height: 30vh;
+    min-height: 0vh;
 
 }
 
