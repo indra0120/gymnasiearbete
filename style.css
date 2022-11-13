@@ -103,7 +103,7 @@ span{
     color: white;
     font-family: SFMono-Regular,Menlo,Monaco,Consolas,liberation mono,courier new,monospace;;
     font-weight: bold;
-    font-size: 20px;
+    font-size: 30px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -115,9 +115,7 @@ span{
 }
 
 .info2, .info3{
-    font-size: 30px;
     min-height: 0vh;
-
 }
 
 .carousel{
