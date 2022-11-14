@@ -114,8 +114,12 @@ span{
 
 }
 
-.info2, .info3{
+.info3{
     min-height: 0vh;
+}
+
+.info2{
+    margin-top: -13vh;
 }
 
 .carousel{
