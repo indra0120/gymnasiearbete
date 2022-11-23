@@ -9,7 +9,7 @@ html{
 *, *::before, *::after {
     box-sizing: border-box;
 }
-/* I HATE NIGGERS */
+
 h1{
     font-size: 20px;
     color: lightgray;
@@ -115,6 +115,11 @@ span{
 
 .info3{
     min-height: 0vh;
+}
+
+.info2{
+    min-height: 10vh;
+    margin-top: 0vh;
 }
 
 .carousel{
