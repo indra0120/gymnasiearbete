@@ -1,4 +1,6 @@
 const buttons = document.querySelectorAll("[data-carousel-button]")
+const hamburger = document.querySelector(".hamburger")
+const navMenu = document.querySelector(".nav-menu")
 
 buttons.forEach(button => {
     button.addEventListener("click", () => {
@@ -16,4 +18,11 @@ buttons.forEach(button => {
     slides.children[newIndex].dataset.active = true
     delete activeSlide.dataset.active
   })
+})
+
+
+
+hamburger.addEventListener("click", () => {
+    hamburger.classList.toggle("active");
+    navMenu.classList.toggle("active");
 })
