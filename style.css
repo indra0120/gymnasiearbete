@@ -227,7 +227,7 @@ ul{
 li{
     display: flex;
     align-items: center;
-    margin-bottom: 2vh;
+    margin-bottom: 0.5vh;
     color: gray;
     font-size: 17px;
     height: 40px;
