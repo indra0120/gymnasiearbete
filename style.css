@@ -146,7 +146,7 @@ video{
     background-color: white;
 }
 
-@media(max-width:528px){
+@media(max-width:750px){
     .hamburger{
         display: block;
     }
@@ -164,12 +164,11 @@ video{
 
     .nav-menu{
         position: absolute;
-        left: -100%;
-        top: 70px;
+        right: -109%;
+        top: 45px;
         gap: 0;
         flex-direction: column;
         background-color: #2c2f33;
-        width: 100%;
         text-align: center;
         transition: 0.3s;
         margin: 16px 0; 
@@ -182,7 +181,7 @@ video{
    }
 
    .nav-menu.active{
-    left: 0;
+    right: 0;
    }
 
    .info{
@@ -351,4 +350,31 @@ img{
 
 .addbot:hover{
     text-decoration: underline 1px solid #00AFF4;
+}
+
+@media screen and (max-width: 1300px){
+    .typing{
+        width: 95vh;
+    }
+}
+
+
+@media screen and (max-width: 1100px){
+    .typing{
+        width: 80vh;
+    }
+}
+
+@media screen and (max-width: 890px){
+    .currentchannel{
+        display: none;
+    }
+}
+
+
+@media (max-width: 528px){
+    .nav-menu.active {
+        right: 0;
+
+    }
 }
