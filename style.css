@@ -95,6 +95,9 @@ span{
 }
 
 
+.logo{
+    display: none;
+    }
 
 .description{
     padding-left: 1.6rem;
@@ -161,7 +164,6 @@ video{
         top: 43px;
         gap: 0;
         flex-direction: column;
-        background-color: #2c2f33;
         text-align: center;
         transition: 0.3s;
         margin: 16px 0; 
@@ -190,6 +192,18 @@ video{
     margin-top: 3vh;
     border-radius: 0px;
    }
+
+   .hotaction{
+    display: none;
+   }
+
+   .logo{
+    display: block;
+   }
+
+   .message{
+    display: none;
+   }
 }
 
 .wrapper{
@@ -216,6 +230,7 @@ ul{
     list-style-type: none;
     width: auto;
 }
+
 
 li{
     display: flex;
@@ -358,7 +373,7 @@ img{
     }
 }
 
-@media screen and (max-width: 890px){
+@media screen and (max-width: 137vh){
     .currentchannel{
         display: none;
     }
