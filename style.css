@@ -39,6 +39,7 @@ a{
     margin-right: auto;
     color: #7289da;
     scale: 1.3;
+    margin-left: 10vh;
 }
 .header, .nav-menu{
     position: relative;
@@ -53,7 +54,8 @@ a{
 .header{
     background: linear-gradient(
         to right, 
-        #2c2f33 45vh, 
+        #1e1f22 0vh 10vh,
+        #2c2f33 10vh 45vh, 
         #36393F 45vh 100%
         );
 
@@ -108,6 +110,7 @@ span{
     font-weight: 600;
     color: grey;
     margin-top: -5.2vh;
+    margin-left: 10vh;
     padding-top: 1.25rem;
 
 
@@ -222,7 +225,12 @@ video{
     width: 45vh;
     height: 100vh;
     font-size: 17px;
-    background-color: #2c2f33;
+    background: linear-gradient(
+        to right, 
+        #1e1f22 0vh 10vh,
+        #2c2f33 10vh 45vh, 
+        #36393F 45vh 100%
+    );
 }
 
 sup{
@@ -232,6 +240,7 @@ sup{
 ul{
     list-style-type: none;
     width: auto;
+    margin-left: 10vh;
 }
 
 
@@ -243,7 +252,7 @@ li{
     font-size: 17px;
     height: 40px;
     font-weight: 600;
-    width: 42vh;
+    width: 31.5vh;
     margin-left: -30px;
     border-radius: 4px;
 
@@ -380,4 +389,24 @@ img{
     .currentchannel{
         display: none;
     }
+}
+
+
+.images{
+    width: 10vh;
+    height: 100vh;
+    position: absolute;
+    margin-top: -6vh;
+}
+
+.images > img{
+    display: flex;
+    margin-left: 1vh;
+    margin-bottom: -3vh;
+}
+
+
+.images > img:hover{
+    border-radius: 13px ;
+    transition: 0.5s;
 }
