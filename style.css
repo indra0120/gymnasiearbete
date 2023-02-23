@@ -202,20 +202,23 @@ ul{
     list-style-type: none;
     width: auto;
     margin-left: 10vh;
+    display: grid;
+    align-self:center;
 }
 
 
 li{
     display: flex;
     align-items: center;
-    margin-bottom: 0.5vh;
+    margin-bottom: 2px;
     color: gray;
     font-size: 17px;
-    height: 40px;
+    height: 35px;
     font-weight: 600;
-    width: 109%;
+    width: auto;
     margin-left: -30px;
     border-radius: 4px;
+    width: 32vh;
 
 }
 
