@@ -58,10 +58,6 @@ a{
         #2b2d31 67px 45vh, 
         #313338 45vh 100%
         );
-
-        box-shadow: 0px 0px 5px 2px rgba(0,0,0,0.75);
-        -webkit-box-shadow: 0px 0px 5px 2px rgba(0,0,0,0.75);
-        -moz-box-shadow: 0px 0px 5px 2px rgba(0,0,0,0.75);
 }
 
 .buttoninv{
@@ -132,27 +128,13 @@ video{
 }
 
 @media(max-width:750px){
-
     .nav-menu{
-        position:absolute;
-        right: -109%;
-        top: 43px;
-        gap: 0;
-        flex-direction: column;
-        text-align: center;
-        transition: 0.3s;
-        margin: 16px 0; 
-        border-radius: 0px;
-        width: 21%;
+        display: none;
     }
 
    h4{
     margin: 16px 0;
 
-   }
-
-   .nav-menu.active{
-    right: 0;
    }
 
    .info{
@@ -164,10 +146,7 @@ video{
     padding: 0%;
 
    }
-   .header{
-    margin-top: 3vh;
-    border-radius: 0px;
-   }
+
    .message{
     display: none;
    }
@@ -188,8 +167,8 @@ video{
     font-size: 17px;
     background: linear-gradient(
         to right, 
-        #1e1f22 0vh 10vh,
-        #2b2d31 10vh 45vh, 
+        #1e1f22 0px 67px,
+        #2b2d31 67px 45vh, 
         #313338 45vh 100%
     );
 }
@@ -301,8 +280,6 @@ img{
     margin-top: 5vh;
     margin-left: 7vh;
     border-radius: 50%;
-    background-image: url("/nskeys.png");
-        
 }
 
 .textcode{
@@ -360,7 +337,7 @@ img{
     width: 10vh;
     height: 100vh;
     position: absolute;
-    margin-top: -6vh;
+    margin-top: -9vh;
     margin-left: -3.8vh;
 }
 
@@ -376,4 +353,30 @@ img{
     border-radius: 13px;
     transition: 0.5s;
     cursor: pointer;
+}
+
+.guest{
+    height: 45px;
+    background-color: #232428;
+    margin-left: 67px;
+    position: absolute;
+    bottom: 0px;
+    width: 233px;
+    display: flex;
+    align-items: center;
+}
+
+.guest > p {
+    color: #f3f4f5;
+    padding-left: 1rem;
+    font-size: 14px;
+    margin-left: -6px;
+
+}
+
+.guest > img {
+    margin-bottom: 30px;
+    height: 30px;
+    width: 30px;
+    margin-left: 10px;
 }

@@ -1,28 +1,16 @@
-const buttons = document.querySelectorAll("[data-carousel-button]")
-const hamburger = document.querySelector(".hamburger")
-const navMenu = document.querySelector(".nav-menu")
+const userNumber = document.getElementById("user-el")
+const numberList = [1,2,3,4,5,6,7,8,9]
 
-buttons.forEach(button => {
-    button.addEventListener("click", () => {
-        const offset = button.dataset.carouselButton === "next" ? 1 : -1
-        const slides = button
-        .closest("[data-carousel]")
-        .querySelector("[data-slides]")
+function getRandomNumber(){
+    let sum = "#"
 
-    
-    const activeSlide = slides.querySelector("[data-active]")
-    let newIndex = [...slides.children].indexOf(activeSlide) + offset
-    if (newIndex < 0) newIndex = slides.children.length - 1
-    if (newIndex >= slides.children.length) newIndex = 0
-    
-    slides.children[newIndex].dataset.active = true
-    delete activeSlide.dataset.active
-  })
-})
+    for (let i = 0;  i < 4; i++){
+    let randomNumber = Math.floor(Math.random()* numberList.length)
+    let fullNumber =  (numberList[randomNumber])
+    sum += fullNumber
+    }    
+    userNumber.innerHTML = `${sum}`
+}
 
-
-
-hamburger.addEventListener("click", () => {
-    hamburger.classList.toggle("active");
-    navMenu.classList.toggle("active");
-})
+getRandomNumber()
+console.log(getRandomNumber())
