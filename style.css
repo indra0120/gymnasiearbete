@@ -22,12 +22,6 @@ h4{
     border-radius: 3px;
 }
 
-h4:hover{
-    transition: 0.5s;
-    cursor: pointer;
-    background-color: #7289da;
-}
-
 a{
     text-decoration: none;
 }
@@ -82,15 +76,6 @@ a{
     transition: all 0.2s ease-out;
     
 }
-
-.invite:hover{
-    background-color: white;
-    color: #7289da;
-    transition: 0.5s;
-    scale: 1.05;
-    cursor: pointer;
-}
-
 span{
     color: white;
 }
@@ -338,7 +323,7 @@ img{
     height: 100vh;
     position: absolute;
     margin-top: -9vh;
-    margin-left: -3.8vh;
+    margin-left: -25px;
 }
 
 .images > img{
@@ -361,17 +346,17 @@ img{
     margin-left: 67px;
     position: absolute;
     bottom: 0px;
-    width: 233px;
+    width: 35vh;
     display: flex;
     align-items: center;
 }
 
-.guest > p {
+.guest > p:nth-child(2){
     color: #f3f4f5;
     padding-left: 1rem;
     font-size: 14px;
-    margin-left: -6px;
-
+    margin-left: -8px;
+    margin-bottom: 20px;
 }
 
 .guest > img {
@@ -379,4 +364,60 @@ img{
     height: 30px;
     width: 30px;
     margin-left: 10px;
+}
+
+.usercode{
+    color: #b3b2ba;
+    font-size: 14px;
+    margin-left: -78px;
+    margin-top: 35px;
+}
+
+abbr {
+    display: inline-block;
+    position: relative;
+    height: 20px;
+    
+    text-decoration: none;
+  }
+  
+  abbr:hover::after {
+    content: attr(data-title);
+    display: flex;
+    align-items: center;
+    position: absolute;  
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: -1.5em;
+    white-space: nowrap;
+    background-color: #111214;
+    color: #cacbcf;
+    height: 25px;
+    padding: 0.25em 0.5em;
+    font-size: 0.75em;
+    border-radius: 4px;
+    margin-bottom: -20px;
+    z-index: 9999;
+  }
+  
+  abbr:hover::before {
+    content: '';
+    position: absolute;
+    top: 14px;
+    left: 50%;
+    transform: translateX(-50%);
+    border: 8px solid transparent;
+    border-bottom-color: #111214;
+    z-index: 9998;
+  }
+  
+abbr > img{
+    margin-left: 0px;
+    margin-top: -15px;
+    height: 40px;
+    width: 40px;
+}
+
+abbr:hover{
+
 }
