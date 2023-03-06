@@ -294,7 +294,7 @@ img{
     width: 10vh;
     height: 100vh;
     position: absolute;
-    margin-top: -17vh;
+    margin-top: -70px;
     margin-left: -25px;
 }
 
@@ -313,20 +313,25 @@ img{
 
 .guest{
     height: 45px;
-    background-color: #232428;
-    margin-left: 67px;
+
+    background: linear-gradient(
+        to right, 
+        #1e1f22 0px 67px,
+        #232428 67px 100%
+        );
     position: absolute;
     bottom: 0px;
-    width: 233px;
+    width: 45vh;
     display: flex;
     align-items: center;
+    justify-content: center;
+    margin-right: 10vh;
 }
 
 .guest > p:nth-child(2){
     color: #f3f4f5;
-    padding-left: 1rem;
+    padding-left: 0.5rem;
     font-size: 14px;
-    margin-left: -8px;
     margin-bottom: 20px;
 }
 
@@ -334,14 +339,15 @@ img{
     margin-bottom: 30px;
     height: 30px;
     width: 30px;
-    margin-left: 10px;
+    margin-left: -5vh;
 }
 
 .usercode{
     color: #b3b2ba;
     font-size: 14px;
-    margin-left: -78px;
     margin-top: 35px;
+    position: absolute;
+    margin-right: 5vh;
 }
 
 abbr {
@@ -414,4 +420,8 @@ img:hover{
     color: red;
     margin: 50px;
     position: absolute;
+}
+
+.name > span{
+    color: #7289da;
 }
