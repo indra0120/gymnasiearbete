@@ -466,5 +466,11 @@ img:hover{
     .page {
       display: none;
     }
-  }
-  
+}
+
+
+@media(max-width:750px){
+    .page{
+        transform: translateX(30%);
+    }
+}
