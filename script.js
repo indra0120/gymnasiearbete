@@ -14,3 +14,13 @@ function getRandomNumber(){
 
 getRandomNumber()
 console.log(getRandomNumber())
+
+
+const pageToggle = document.querySelector('.page-toggle');
+const page = document.querySelector('.page');
+const pageOverlay = document.querySelector('.page-overlay');
+
+pageToggle.addEventListener('click', function() {
+  page.classList.toggle('active');
+  pageOverlay.classList.toggle('active');
+});
