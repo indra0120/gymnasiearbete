@@ -24,3 +24,12 @@ pageToggle.addEventListener('click', function() {
   page.classList.toggle('active');
   pageOverlay.classList.toggle('active');
 });
+
+
+
+const pageToggle2 = document.querySelector('.page-toggle2');
+
+pageToggle2.addEventListener('click', function() {
+  page.classList.toggle('active');
+  pageOverlay.classList.toggle('active');
+});

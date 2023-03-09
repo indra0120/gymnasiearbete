@@ -124,7 +124,7 @@ video{
 .wrapper{
     background-color: #313338;
     height: auto;
-    margin-top: 5.5vh;
+    margin-top: 37px;
 }
 
 .textchannels{
@@ -437,13 +437,13 @@ img:hover{
 
 .page {
     position: absolute;
-    top: 50%;
-    left: 50%;
+    top: 0%;
+    left: 0px;
     width: 100%;
     max-width: 800px;
     height: 100%;
-    background-color: #fff;
-    padding: 20px;
+    background-color: #31343b;
+    color: white;
     box-sizing: border-box;
     transform: translateX(100%);
     transition: transform 0.3s ease-in-out;
@@ -452,7 +452,42 @@ img:hover{
   .page.active {
     transform: translateX(0%);
   }
+
+  .header2{
+    background-color: #2a2e30;
+    height: 50px;
+    padding: 0%;
+    margin: 0%;
+    display: flex;
+    align-items: center;
+  }
   
+  .header2 > img{
+    margin: 0;
+    height: 30px;
+    width: 30px;
+    padding-left: 1rem;
+    border-radius: 0;
+  }
+
+  .header2 > p {
+    color: white;
+    margin-left: 15px;
+    font-weight: 600;
+  }
+
+  .header2 > i {
+    margin-left: 20px;
+  }
+
+  .first_anchor{
+    margin-left: 150px;
+  }
+
+  .header2 > a{
+    margin-top: 10px;
+    margin-right: 5px;
+  }
   .page-overlay {
     top: 0;
     left: 0;
