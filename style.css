@@ -123,7 +123,7 @@ video{
 
 .wrapper{
     background-color: #313338;
-    height: auto;
+    height: 92vh;
     margin-top: 5.5vh;
 }
 
@@ -300,7 +300,6 @@ img{
 
 .images{
     width: 10vh;
-    height: 100vh;
     position: absolute;
     margin-top: -70px;
     margin-left: -25px;
