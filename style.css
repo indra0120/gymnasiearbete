@@ -113,7 +113,6 @@ video{
 
 
 }
-
 .wrapper{
     background-color: #313338;
     height: auto;
@@ -429,7 +428,7 @@ img:hover{
 
 .page {
     overflow: hidden;
-    position: absolute;
+    position: fixed;
     top: 0%;
     left: 0px;
     width: 100%;
