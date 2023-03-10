@@ -13,7 +13,6 @@ body{
 
 
 .everything{
-    position: relative;
     overflow: hidden;
 }
 
@@ -123,13 +122,13 @@ video{
 
 .wrapper{
     background-color: #313338;
-    height: 92vh;
+    height: auto;
     margin-top: 5.5vh;
 }
 
 .textchannels{
-    width: 45vh;
-    height: 100%;
+    width: 45vh;    
+    height: 100vh;
     font-size: 17px;
     background: linear-gradient(
         to right, 
@@ -320,14 +319,13 @@ img{
 
 .guest{
     height: 45px;
-
+    bottom: 0px;
+    position: absolute;
     background: linear-gradient(
         to right, 
         #1e1f22 0px 67px,
         #232428 67px 100%
         );
-    position: absolute;
-    bottom: 0px;
     width: 45vh;
     display: flex;
     align-items: center;
