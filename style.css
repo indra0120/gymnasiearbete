@@ -4,11 +4,6 @@ body{
     margin: 0;
     overflow: hidden;
     font-family: SFMono-Regular,Menlo,Monaco,Consolas,liberation mono,courier new,monospace;
-    background: linear-gradient(
-        to right, 
-        #1e1f22 0px 67px,
-        #23272a 67px 100%
-        );
 }
 
 
@@ -76,7 +71,6 @@ span{
     font-size: 17px;
     font-weight: 600;
     color: grey;
-    margin-top: -5.2vh;
     margin-left: 10vh;
     padding-top: 1.25rem;
 }
@@ -123,10 +117,12 @@ video{
 .wrapper{
     background-color: #313338;
     height: auto;
-    margin-top: 5.5vh;
+    box-sizing: border-box;
+
 }
 
 .textchannels{
+
     width: 45vh;    
     height: 100vh;
     font-size: 17px;
