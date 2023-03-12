@@ -94,10 +94,6 @@ video{
     border-radius: 6px;
 }
 
-.vid{
-    background-color: none;
-}
-
 @media(max-width:750px){
     .nav-menu{
         display: none;
@@ -122,7 +118,12 @@ video{
     display: none;
    }
 
-
+   video{
+    width: 65vh;
+    margin-left: 60px;
+    margin-top: 0px;
+    border-radius: 20px;
+   }
 }
 .wrapper{
     background-color: #313338;
@@ -433,7 +434,7 @@ img:hover{
     position: absolute;
 }
 
-.name > span{
+.name > span, .name2 > span{
     color: #7289da;
 }
 
@@ -466,6 +467,7 @@ img:hover{
     display: flex;
     align-items: center;
     justify-content: flex-end;
+    border-bottom: 1px solid #1e2127;
   }
 
   .header2 > p {
@@ -515,3 +517,18 @@ img:hover{
     margin-top: 10px;
 }
 
+
+.message2 > img {
+    position: absolute;
+    margin-left: 12px;
+    margin-top: 0;
+    height: 40px;
+    width: 40px;
+    margin-top: -2px;
+}
+
+.name2, .typing2{
+    margin-left: 62px;
+    margin-top: 10px;
+    font-weight: 600;
+}
