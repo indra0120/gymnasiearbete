@@ -345,7 +345,7 @@ img{
     display: flex;
     align-items: center;
     margin-right: 10vh;
-    z-index: 2;
+    z-index: 4;
     margin-left: 67px;
 }
 
@@ -554,6 +554,6 @@ img:hover{
     position: absolute;
     display: flex;
     align-items: center;
-    z-index: 3;
+    z-index: 2;
     
 }
