@@ -75,14 +75,14 @@ span{
 
 .logo{
     display: none;
-    }
+}
 
 .description{
     padding-left: 1.6rem;
     font-size: 17px;
     font-weight: 600;
     color: grey;    
-    margin-left: 10vh;
+    margin-left: 67px;
     padding-top: 1.25rem;
 }
 
@@ -94,7 +94,28 @@ video{
     border-radius: 6px;
 }
 
+.textchannels{
+    width: 45vh;    
+    height: 100%;
+    font-size: 17px;
+    background: linear-gradient(
+        to right, 
+        #1e1f22 0px 67px,
+        #2b2d31 67px 45vh, 
+        #313338 45vh 100%
+    );
+}
+
 @media(max-width:750px){
+
+    .textchannels{
+        background: linear-gradient(
+            to right, 
+            #1e1f22 0px 67px,
+            #2b2d31 67px 45vh, 
+            #2b2d31 45vh 100%
+        );
+    }
     .nav-menu{
         display: none;
     }
@@ -132,18 +153,6 @@ video{
     margin-top: 2vh;
 }
 
-.textchannels{
-    width: 45vh;    
-    height: 100%;
-    font-size: 17px;
-    background: linear-gradient(
-        to right, 
-        #1e1f22 0px 67px,
-        #2b2d31 67px 45vh, 
-        #313338 45vh 100%
-    );
-}
-
 sup{
     font-size: 40px;
 }
@@ -151,7 +160,7 @@ sup{
 ul{
     list-style-type: none;
     width: auto;
-    margin-left: 10vh;
+    margin-left: 67px;
     display: grid;
     align-self:center;
 }
@@ -184,7 +193,7 @@ li:focus{
 }
 
 i{
-    margin-left: 2vh;
+    margin-left: 13px;
     font-size: 30px;
     font-weight: lighter;
     color: gray;
@@ -237,6 +246,12 @@ i{
     margin-left: 45vh;
 }
 
+.message > img{
+
+    margin-left: 45px; 
+
+}
+
 .message > p {
     color: white;
     position: absolute;
@@ -250,7 +265,6 @@ img{
     height: 50px;
     width: 50px;
     margin-top: 5vh;
-    margin-left: 7vh;
     border-radius: 50%;
 }
 
@@ -327,39 +341,34 @@ img{
     height: 45px;
     bottom: 0px;
     position: absolute;
-    background: linear-gradient(
-        to right, 
-        #1e1f22 0px 67px,
-        #232428 67px 100%
-        );
-    width: 45vh;
+    width: 35vh;
     display: flex;
     align-items: center;
-    justify-content: center;
     margin-right: 10vh;
     z-index: 2;
+    margin-left: 67px;
 }
 
 .guest > p:nth-child(2){
     color: #f3f4f5;
     padding-left: 0.5rem;
     font-size: 14px;
-    margin-bottom: 20px;
+    margin-bottom: 25px;
 }
 
 .guest > img {
-    margin-bottom: 30px;
+    margin-left: 10px;
+    margin-top: 0px;
     height: 30px;
     width: 30px;
-    margin-left: -30px;
 }
 
 .usercode{
     color: #b3b2ba;
     font-size: 14px;
-    margin-top: 35px;
+    margin-top: 30px;
     position: absolute;
-    margin-right: 30px;
+    margin-left: 48px;
 }
 
 abbr {
@@ -531,4 +540,20 @@ img:hover{
     margin-left: 62px;
     margin-top: 10px;
     font-weight: 600;
+}
+
+.www{
+    background: linear-gradient(
+        to right, 
+        #1e1f22 0px 67px,
+        #232428 67px 45vh
+        );  
+    width: 45vh;
+    height: 45px;
+    bottom: 0px;
+    position: absolute;
+    display: flex;
+    align-items: center;
+    z-index: 3;
+    
 }
