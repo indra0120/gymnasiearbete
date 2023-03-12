@@ -44,7 +44,7 @@ a{
 
 .nav-menu2{
     display: flex;
-    grid-gap: 30px;
+    grid-gap: 10px;
     padding-left: 2rem ;
     padding-right: 2rem;
     height: 50px;
