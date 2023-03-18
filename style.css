@@ -90,8 +90,8 @@ video{
     inset: 0;
     width: 75vh;
     margin-top: 23vh;
-    margin-left: 16vh;
     border-radius: 6px;
+    margin-left: 60px;
 }
 
 .textchannels{
@@ -140,10 +140,11 @@ video{
    }
 
    video{
-    width: 35vh;
-    margin-left: 60px;
-    margin-top: 0px;
+    width: 100% ;
     border-radius: 20px;
+    margin-top: 30px;
+    margin-left: 0px;
+
    }
 }
 .wrapper{
@@ -512,14 +513,15 @@ img:hover{
     }
 }*/
 
-.page-toggle2{
+.hamburger{
     margin: 0;
-    height: 30px;
-    width: 30px;
     padding-left: 1rem;
-    border-radius: 0;
     position: absolute;
     left: 0;
+}
+
+.hamburger:hover{
+    cursor: pointer;
 }
 
 .anchor{
@@ -542,7 +544,13 @@ img:hover{
     font-weight: 600;
 }
 
-.www{
+.typing2{
+    margin-top: -10px;
+    width: 37vh;
+}
+
+
+.guestbackground{
     background: linear-gradient(
         to right, 
         #1e1f22 0px 67px,
@@ -556,4 +564,13 @@ img:hover{
     align-items: center;
     z-index: 2;
     
+}
+
+.bar{
+    display: block;
+    width: 20px;
+    height: 2px;
+    margin: 3px auto;
+    background-color: #b6babd;
+
 }

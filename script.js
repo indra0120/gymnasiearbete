@@ -27,7 +27,7 @@ pageToggle.addEventListener('click', function() {
 
 
 
-const pageToggle2 = document.querySelector('.page-toggle2');
+const pageToggle2 = document.querySelector('.hamburger');
 
 pageToggle2.addEventListener('click', function() {
   page.classList.toggle('active');
