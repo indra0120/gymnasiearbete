@@ -91,7 +91,7 @@ video{
     width: 75vh;
     margin-top: 23vh;
     border-radius: 6px;
-    margin-left: 128px;
+    margin-left: 110px;
 }
 
 .textchannels{
@@ -140,7 +140,7 @@ video{
    }
 
    video{
-    width: 100% ;
+    width: 95% ;
     border-radius: 20px;
     margin-top: 30px;
     margin-left: 0px;
@@ -285,7 +285,7 @@ img{
 .typing{
     margin-bottom: 20px;
     position: absolute;
-    margin-left: 16.5vh;
+    margin-left: 110px;
     margin-top: -4.5vh;
     font-weight: 600;
     color: white;
@@ -546,7 +546,6 @@ img:hover{
 
 .typing2{
     margin-top: -10px;
-    width: 37vh;
 }
 
 
