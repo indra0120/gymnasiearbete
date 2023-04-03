@@ -259,7 +259,6 @@ i{
     margin-left: 110px;
     margin-top: -7.5vh;
     font-weight: 600;
-
 }
 
 img{
@@ -540,7 +539,7 @@ img:hover{
 
 .name2, .typing2{
     margin-left: 62px;
-    margin-top: 10px;
+    margin-top: 20px;
     font-weight: bold;
 }
 
