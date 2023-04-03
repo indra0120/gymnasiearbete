@@ -256,7 +256,7 @@ i{
 .message > p {
     color: white;
     position: absolute;
-    margin-left: 16.5vh;
+    margin-left: 110px;
     margin-top: -7.5vh;
     font-weight: 600;
 
@@ -541,7 +541,7 @@ img:hover{
 .name2, .typing2{
     margin-left: 62px;
     margin-top: 10px;
-    font-weight: 600;
+    font-weight: bold;
 }
 
 .typing2{
