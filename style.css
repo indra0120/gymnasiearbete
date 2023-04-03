@@ -530,7 +530,7 @@ img:hover{
 
 .message2 > img {
     position: absolute;
-    margin-left: 12px;
+    margin-left: 8px;
     margin-top: 0;
     height: 40px;
     width: 40px;
@@ -538,7 +538,7 @@ img:hover{
 }
 
 .name2, .typing2{
-    margin-left: 62px;
+    margin-left: 59px;
     margin-top: 20px;
     font-weight: bold;
 }
