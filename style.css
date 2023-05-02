@@ -161,7 +161,7 @@ h3 a{
 
 @media only screen and (max-width: 1400px) {
 
-    h1{
+    .text h1{
         font-size: 33px;
     }
 }
